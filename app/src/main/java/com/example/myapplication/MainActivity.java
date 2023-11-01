@@ -7,11 +7,13 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText email, password;
+    Button Btnlogin;
     boolean passwordVisible;
 
     @Override
@@ -21,6 +23,26 @@ public class MainActivity extends AppCompatActivity {
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.pass);
+        Btnlogin = findViewById(R.id.btn_login);
+
+        Btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //isi action button
+
+                String Email = email.getText().toString().trim();
+                String Password = password.getText().toString().trim();
+
+                if (Email.isEmpty()){
+                    email.setError("Username/email wajib diisi");
+                    return;
+                }
+                if(Password.isEmpty()){
+                    password.setError("Password harus diisi");
+                    return;
+                }
+            }
+        });
 
         password.setOnTouchListener(new View.OnTouchListener() {
             @Override
