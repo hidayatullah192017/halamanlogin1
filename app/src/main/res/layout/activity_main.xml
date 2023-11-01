@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/kasirplus"/>
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:textStyle="bold"
         android:text="Login"/>
 
@@ -58,18 +58,43 @@
             android:longClickable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/remember_me"
+        android:layout_marginTop="10dp"
+        android:text="Ingat Saya"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/btn_login"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="Login"
         android:textAllCaps="false"/>
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:layout_marginTop="10dp"
-        android:text="Belum punya akun ? daftar disini"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Belum punya akun ?"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:textColor="#2874BF"
+            android:text="Daftar"/>
+    </LinearLayout>
+
+
+
 </LinearLayout>

@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -21,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         email = findViewById(R.id.email);
         password = findViewById(R.id.pass);
         Btnlogin = findViewById(R.id.btn_login);
@@ -28,16 +31,16 @@ public class MainActivity extends AppCompatActivity {
         Btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //isi action button
+                // Isi action button
 
                 String Email = email.getText().toString().trim();
                 String Password = password.getText().toString().trim();
 
-                if (Email.isEmpty()){
+                if (Email.isEmpty()) {
                     email.setError("Username/email wajib diisi");
                     return;
                 }
-                if(Password.isEmpty()){
+                if (Password.isEmpty()) {
                     password.setError("Password harus diisi");
                     return;
                 }
@@ -52,15 +55,15 @@ public class MainActivity extends AppCompatActivity {
                     if (motionEvent.getRawX() >= password.getRight() - password.getCompoundDrawables()[Right].getBounds().width()) {
                         int selection = password.getSelectionEnd();
                         if (passwordVisible) {
-                            //set drawable image here
+                            // Set drawable image here
                             password.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_visibility_off_24, 0);
-                            //for hide password
+                            // For hide password
                             password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                             passwordVisible = false;
                         } else {
-                            //set drawable image here
+                            // Set drawable image here
                             password.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_visibility_24, 0);
-                            //for show password
+                            // For show password
                             password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                             passwordVisible = true;
                         }
