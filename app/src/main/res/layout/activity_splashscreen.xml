@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:text="@string/Kasir_Plus"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/poppinsbold"/>
 </RelativeLayout>

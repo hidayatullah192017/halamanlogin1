@@ -8,6 +8,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.content.Intent;
+import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.pass);
         Btnlogin = findViewById(R.id.btn_login);
+
 
         Btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,5 +79,15 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        TextView txtDaftar = findViewById(R.id.txt_daftar);
+        txtDaftar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Ketika teks "Daftar" diklik, pindah ke DaftarActivity
+                Intent intent = new Intent(MainActivity.this, DaftarActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
