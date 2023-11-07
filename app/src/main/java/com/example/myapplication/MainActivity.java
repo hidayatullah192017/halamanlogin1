@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText email, password;
     Button Btnlogin;
-    boolean passwordVisible;
+    TextView txtDaftar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.pass);
         Btnlogin = findViewById(R.id.btn_login);
+        txtDaftar = findViewById(R.id.txt_daftar);
 
 
         Btnlogin.setOnClickListener(new View.OnClickListener() {
@@ -51,35 +52,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        password.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                final int Right = 2;
-                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    if (motionEvent.getRawX() >= password.getRight() - password.getCompoundDrawables()[Right].getBounds().width()) {
-                        int selection = password.getSelectionEnd();
-                        if (passwordVisible) {
-                            // Set drawable image here
-                            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_visibility_off_24, 0);
-                            // For hide password
-                            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                            passwordVisible = false;
-                        } else {
-                            // Set drawable image here
-                            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_visibility_24, 0);
-                            // For show password
-                            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                            passwordVisible = true;
-                        }
-                        password.setSelection(selection);
-                        return true;
-                    }
-                }
-
-                return false;
-            }
-        });
-        TextView txtDaftar = findViewById(R.id.txt_daftar);
         txtDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

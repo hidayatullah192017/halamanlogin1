@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".MainActivity">
+    tools:context=".DaftarActivity">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -33,7 +33,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline">
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
@@ -47,14 +49,32 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@color/white"
+        app:passwordToggleEnabled="true">
         <EditText
             android:id="@+id/pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="Enter Password"
             android:inputType="textPassword"
-            android:drawableRight="@drawable/ic_baseline_visibility_off_24"
+            android:longClickable="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@color/white"
+        app:passwordToggleEnabled="true">
+        <EditText
+            android:id="@+id/conf_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
             android:longClickable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
