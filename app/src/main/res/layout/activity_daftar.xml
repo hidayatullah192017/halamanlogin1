@@ -37,7 +37,7 @@
         app:boxBackgroundColor="@color/white"
         app:boxBackgroundMode="outline">
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
@@ -54,7 +54,7 @@
         app:boxBackgroundColor="@color/white"
         app:passwordToggleEnabled="true">
         <EditText
-            android:id="@+id/pass"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Password"
@@ -70,7 +70,7 @@
         app:boxBackgroundColor="@color/white"
         app:passwordToggleEnabled="true">
         <EditText
-            android:id="@+id/conf_pass"
+            android:id="@+id/conf_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm Password"

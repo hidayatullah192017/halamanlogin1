@@ -10,13 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText email, password;
+    EditText username, password;
     Button Btnlogin;
     TextView txtDaftar;
+    DBHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +29,11 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.pass);
+        username = findViewById(R.id.username1);
+        password = findViewById(R.id.password1);
         Btnlogin = findViewById(R.id.btn_login);
         txtDaftar = findViewById(R.id.txt_daftar);
+        DB = new DBHelper(this);
 
 
         Btnlogin.setOnClickListener(new View.OnClickListener() {
@@ -38,11 +41,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Isi action button
 
-                String Email = email.getText().toString().trim();
+                String Username = username.getText().toString().trim();
                 String Password = password.getText().toString().trim();
 
-                if (Email.isEmpty()) {
-                    email.setError("Username/email wajib diisi");
+                if(Username.equals("")||Password.equals(""))
+                    Toast.makeText(MainActivity.this, "Mohon isi semua kolom", Toast.LENGTH_SHORT).show();
+                else{
+                    Boolean checkuserpass = DB.checkusernamepassword(Username, Password);
+                    if (checkuserpass==true){
+                        Toast.makeText(MainActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(MainActivity.this, "Email/Password Salah!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                if (Username.isEmpty()) {
+                    username.setError("Username/email wajib diisi");
                     return;
                 }
                 if (Password.isEmpty()) {
